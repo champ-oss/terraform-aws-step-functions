@@ -2,7 +2,7 @@ resource "aws_sfn_state_machine" "this" {
 
   name       = substr("${var.git}-${random_string.identifier.result}", 0, 80) # 80 character max length
   type       = var.type
-  role_arn   = var.role_arn
+  role_arn   = aws_iam_role.this.arn
   definition = jsonencode(var.definition)
   tags       = merge(local.tags, var.tags)
 
