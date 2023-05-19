@@ -13,5 +13,11 @@ data "aws_iam_policy_document" "this" {
       type        = "Service"
     }
   }
-
+  statement {
+    actions = [
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+    ]
+    resources = ["*"]
+  }
 }
