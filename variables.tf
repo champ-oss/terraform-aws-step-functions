@@ -28,12 +28,6 @@ variable "type" {
   default     = "STANDARD"
 }
 
-variable "role_arn" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#role_arn"
-  type        = string
-  default     = null
-}
-
 variable "definition" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#definition"
   type        = any
