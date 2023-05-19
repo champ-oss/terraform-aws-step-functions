@@ -12,7 +12,7 @@ variable "git" {
 
 variable "logging_enabled" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#logging"
-  default     = false
+  default     = true
   type        = bool
 }
 
@@ -43,11 +43,22 @@ variable "log_destination" {
 variable "include_execution_data" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#include_execution_data"
   type        = string
-  default     = null
+  default     = true
 }
 
 variable "log_level" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#log_level"
   type        = string
-  default     = null
+  default     = "ALL"
+}
+
+variable "name" {
+  description = "Unique identifier for naming resources"
+  type        = string
+}
+
+variable "retention_in_days" {
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group#retention_in_days"
+  type        = number
+  default     = 365
 }

@@ -1,6 +1,6 @@
 resource "aws_sfn_state_machine" "this" {
 
-  name       = substr("${var.git}-${random_string.identifier.result}", 0, 80) # 80 character max length
+  name       = substr("${var.git}-${var.name}-${random_string.identifier.result}", 0, 80) # 80 character max length
   type       = var.type
   role_arn   = aws_iam_role.this.arn
   definition = jsonencode(var.definition)
@@ -10,7 +10,7 @@ resource "aws_sfn_state_machine" "this" {
     for_each = var.logging_enabled ? [true] : []
 
     content {
-      log_destination        = var.log_destination
+      log_destination        = aws_cloudwatch_log_group.this.arn
       include_execution_data = var.include_execution_data
       level                  = var.log_level
     }

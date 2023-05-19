@@ -10,6 +10,7 @@ data "aws_region" "current" {}
 
 module "this" {
   source = "../../"
+  name   = "hello-world"
   definition = {
     "Comment" : "hello world example",
     "StartAt" : "Hello",
