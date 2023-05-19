@@ -9,8 +9,9 @@ provider "aws" {
 data "aws_region" "current" {}
 
 module "this" {
-  source = "../../"
-  name   = "hello-world"
+  source          = "../../"
+  name            = "hello-world"
+  tracing_enabled = true
   definition = {
     "Comment" : "hello world example",
     "StartAt" : "Hello",
