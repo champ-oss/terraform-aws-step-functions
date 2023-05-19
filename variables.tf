@@ -34,12 +34,6 @@ variable "definition" {
   default     = null
 }
 
-variable "log_destination" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#log_destination"
-  type        = string
-  default     = null
-}
-
 variable "include_execution_data" {
   description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine.html#include_execution_data"
   type        = string
