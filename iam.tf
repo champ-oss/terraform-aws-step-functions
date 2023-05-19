@@ -23,18 +23,4 @@ data "aws_iam_policy_document" "this" {
       type        = "Service"
     }
   }
-  statement {
-    effect = "Allow"
-
-    actions = [
-      "states:DescribeStateMachine",
-      "states:StartExecution",
-      "states:ListExecutions",
-      "states:UpdateStateMachine",
-    ]
-
-    resources = [
-      aws_sfn_state_machine.this.id,
-    ]
-  }
 }
