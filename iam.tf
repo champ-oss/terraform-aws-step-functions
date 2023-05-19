@@ -1,5 +1,5 @@
 resource "aws_iam_role" "this" {
-  name_prefix        = "${var.git}-state-machine-role"
+  name_prefix        = substr("${var.git}-state-machine-role", 0, 38) # 38 character max length
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
@@ -9,8 +9,11 @@ data "aws_iam_policy_document" "assume_role" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      identifiers = ["states.amazonaws.com"]
-      type        = "Service"
+      identifiers = [
+        "states.amazonaws.com",
+        "lambda.amazonaws.com"
+      ]
+      type = "Service"
     }
   }
 }
