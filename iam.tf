@@ -38,7 +38,11 @@ data "aws_iam_policy_document" "this" {
       "logs:ListLogDeliveries",
       "logs:PutResourcePolicy",
       "logs:DescribeResourcePolicies",
-      "logs:DescribeLogGroups"
+      "logs:DescribeLogGroups",
+      "xray:PutTraceSegments",
+      "xray:PutTelemetryRecords",
+      "xray:GetSamplingRules",
+      "xray:GetSamplingTargets"
     ]
     resources = ["*"]
   }
