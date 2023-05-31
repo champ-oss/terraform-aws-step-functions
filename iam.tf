@@ -31,6 +31,9 @@ resource "aws_iam_role_policy_attachment" "this" {
 data "aws_iam_policy_document" "this" {
   statement {
     actions = [
+      "events:PutTargets",
+      "events:PutRule",
+      "events:DescribeRule",
       "logs:CreateLogDelivery",
       "logs:GetLogDelivery",
       "logs:UpdateLogDelivery",
@@ -42,7 +45,10 @@ data "aws_iam_policy_document" "this" {
       "xray:PutTraceSegments",
       "xray:PutTelemetryRecords",
       "xray:GetSamplingRules",
-      "xray:GetSamplingTargets"
+      "xray:GetSamplingTargets",
+      "iam:ListRoles",
+      "iam:PassRole",
+      "sqs:SendMessage"
     ]
     resources = ["*"]
   }
