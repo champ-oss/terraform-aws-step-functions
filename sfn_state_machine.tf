@@ -1,5 +1,4 @@
 resource "aws_sfn_state_machine" "this" {
-
   name       = substr("${var.git}-${var.name}-${random_string.identifier.result}", 0, 80) # 80 character max length
   type       = var.type
   role_arn   = aws_iam_role.this.arn
