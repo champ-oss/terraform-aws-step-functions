@@ -3,7 +3,7 @@ resource "random_string" "identifier" {
   special = false
   upper   = false
   lower   = true
-  number  = true
+  numeric = true
 }
 
 locals {
